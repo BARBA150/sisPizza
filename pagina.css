@@ -1,0 +1,527 @@
+.logo{
+    max-width: 170px;                       /*Estabelece a largura máxima*/
+    max-height: 68px;                       /*Estabelece a Altura máxima*/
+    width: 100%;                            /*Largura*/
+    height: 70%;                            /*Altura*/
+    left: 40px;                             /*Esquerda*/
+    align-items: center;                    /*Alinha os itens (centro)*/
+    display: flex;                          /*Defini como um elemento HTML será renderizado(Flex= Adaptativo)*/
+  }
+  
+  .titulos h1{
+    font-size: 50px;                        /*Tamanho da fonte*/
+    text-align: center;                     /*Alinha os itens (centro)*/           
+    margin: 30px;                           /*Área de margem nos quatro lados do elemento(Espaçamento fora da borda)*/
+  }
+  
+  /* ==================================== */
+  #header {
+    --text: red;                    /*  Cor de fundo do botão Login/Cadastro  */
+    position: fixed;                      /* posição (fixa em relação ao viewport) Menu ancora */
+    top: 0;                                
+    left: 0;                              /*Ajusta a localização*/
+    right: 0; 
+    z-index: 999;                         /*Sobreposição de elementos, quanto maior o numero maior a prioridade*/
+    display: flex;                        /*Defini como um elemento HTML será renderizado(Flex= Adaptativo)*/
+    justify-content: space-between;       /* define como o navegador distribui o espaço entre os itens(Os itens são distribuídos uniformemente dentro do contêiner)*/
+    align-items: center;                  /*Alinha os itens (centro)*/
+    padding: 32px 48px;                   /*Área de margem nos quatro lados do elemento(Espaçamento entre o conteúdo e a borda.)*/
+    background: rgb(0, 0, 0);     /*Cor de fundo do menu*/
+  }
+  
+  #nav {
+    display: flex;                        /*Defini como um elemento HTML será renderizado(Flex= Adaptativo)*/
+    list-style: none;                     /* Seleciona as listas (Ul, OL), none(Tira a bolinha) */
+    gap: 8px;                             /*Distancia entre cada elemento*/
+   }
+   #menu {
+    display: flex;                        /*Defini como um elemento HTML será renderizado(Flex= Adaptativo)*/
+    list-style: none;                     /* Seleciona as listas (Ul, OL), none(Tira a bolinha) */
+    gap: .5rem;                           /*Distancia entre cada elemento*/
+    color: orange;                     /*Cor da letra do menu*/
+    font-weight: bold;                    /*Negrito*/
+   }
+  
+  #nav__list{
+    display: flex;                        /*Defini como um elemento HTML será renderizado(Flex= Adaptativo)*/
+    list-style: none;                     /*Seleciona as listas (Ul, OL), none(Tira a bolinha) */
+    gap: 0.5rem;                          /*Distancia entre cada elemento*/
+    color: orange;                     /*Cor das letras do Login/Cadastro*/
+  }
+  #nav__list a{
+    display: block;                       /*Defini como um elemento HTML será renderizado(Block= alinha em blocos)*/
+    padding: 0.5rem;                      /*Área de margem nos quatro lados do elemento(Espaçamento entre o conteúdo e a borda.)*/
+  }
+  #menu a {
+    display: block;                       /*Defini como um elemento HTML será renderizado(Block= alinha em blocos)*/
+    padding: 0.5rem;                      /*Área de margem nos quatro lados do elemento(Espaçamento entre o conteúdo e a borda.)*/
+  }
+  #btn-mobile {
+    display: none;                        /*Defini como um elemento HTML será renderizado(none = Desabilita a exibição do elemento)*/
+  }
+  
+  @media (max-width: 768px) {             /*@media = Implica alguma condição para stylos (max-whidth : condicinal que começa a funcionar a partir de 768px de largura */
+    #menu {
+      display: block;                     /*Defini como um elemento HTML será renderizado(Block= alinha em blocos)*/
+      position: absolute;                 /* Posição (Sobrepõem outros elementos) */
+      width: 100%;                        /*Largura por porcentagem da tela*/
+      top: 70px;                          /*Alinhamento*/
+      right: 0px;                         /*Alinhamento*/
+      background: #ffffff;              /*Cor de fundo do menu hamburgue*/
+      transition: 0.6s;                   /*Delay na abertura do menu hamburguer*/
+      z-index: 1000;                      /*Sobreposição de elementos, quanto maior o numero maior a prioridade*/
+      height: 0px;                        /*Alinhamento*/
+      visibility: hidden;                 /*Pode mostrar ou ocultar um elemento(hidden: oculta o elemento)*/
+                      
+    }
+    #nav__list {
+      display: flex;                      /*Defini como um elemento HTML será renderizado(Flex= Adaptativo)*/
+      position: absolute;                 /* Posição (Sobrepõem outros elementos) */
+      width: 100%;                        /*Alinhamento*/
+      top: 360px;                         /*Alinhamento*/
+      right: 0px;                         /*Alinhamento*/
+      background: #ffffff;              /*Cor de fundo do menu hamburgue*/
+      z-index: 1000;                      /*Sobreposição de elementos, quanto maior o numero maior a prioridade*/
+      height: 0px;                        /*Alinhamento*/
+      visibility: hidden;                 /*Pode mostrar ou ocultar um elemento(hidden: oculta o elemento)*/
+      list-style: none;                   /* Seleciona as listas (Ul, OL), none(Tira a bolinha) */
+    }
+    
+  
+    #nav.active #menu {
+      height: calc(100vh - 70px);
+      visibility: visible;
+      overflow-y: auto;
+    }
+    
+    #nav.active #nav__list  {
+      height: calc(100vh - 70px);
+      visibility: visible;
+      overflow-y: auto;
+    }
+    #menu a {
+      padding: 1rem 0;
+      margin: 0 1rem;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    }
+    #btn-mobile {
+      display: flex;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      gap: 0.5rem;
+    }
+    #hamburger {
+      border-top: 2px solid;
+      width: 20px;
+    }
+    #hamburger::after,
+    #hamburger::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;                                 /*receba a mesma cor de fonte definida no elemento ou em um elemento pai*/
+      margin-top: 5px;
+      transition: 0.3s;
+      position: relative;
+    }
+    #nav.active #hamburger {
+      border-top-color: transparent;
+    }
+    #nav.active #hamburger::before {
+      transform: rotate(135deg);
+    }
+    #nav.active #hamburger::after {
+      transform: rotate(-135deg);
+      top: -7px;
+    }
+  }
+  
+  .nav__link {
+    --spacing: 1em;
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    padding: calc(var(--spacing) / 2) var(--spacing);
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+  }
+  
+  .nav__link:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: var(--spacing);
+    right: var(--spacing);
+    height: 2px;
+    background: currentColor;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    transition: -webkit-transform 150ms ease-in-out;                                /*especifica um efeito de transição com início e fim lentos*/
+    transition: transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  }
+  
+  .nav__link:hover::after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+  
+  .nav__link--btn {
+    border: 1.5px solid currentColor;
+    border-radius: 2em;
+    margin-left: 1em;
+    transition: background 250ms ease-in-out;
+    letter-spacing: 1px;
+    padding: 0.75em 1.5em;
+  }
+  
+  .nav__link--btn:hover {
+    background: var(--text);
+    color: var(--text-inverse);
+    border-color: var(--text);
+  }
+  
+  .nav__link--btn::after {
+    display: none;
+  }
+  
+  .nav__link--btn--highlight {
+    border: 1.5px solid currentColor;                         /*recebe a mesma cor de fonte definida no elemento ou em um elemento pai*/
+    border-radius: 2em;
+    margin-left: 1em;
+    transition: background 250ms ease-in-out;                 /*especifica um efeito de transição com início e fim lentos*/
+    letter-spacing: 1px;
+    padding: 0.75em 1.5em;
+  }
+  
+  .nav__link--btn--highlight:hover {
+    background: var(--text);
+    color: var(--text-inverse);
+    border-color: var(--text);
+  }
+  
+  .nav__link--btn--highlight::after {
+    display: none;
+  }
+  
+  .nav-scrolled {
+    --text: #333;
+    --text-inverse: #e91212;
+    --background: #9ffa0c;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  /*Slide ==================== SLIDE  ================= SLIDE  ================== SLIDE   ======================  SLIDE  =====================  SLIDE========================*/
+  .stop-scrolling { /*Classe para parar o scrolling do Site, focando apenas no Slider*/
+    height: 100%;  
+    overflow: hidden;
+  }
+  
+  #items-wrapper { /*Conteiner do itens*/
+    margin-top: 132px;
+    width: 100vw;
+  }
+  
+  #items { /*Conteiner dos itens das imgs*/
+    display: flex;
+  
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /*Demanda a oientação do Scroll*/
+    
+    scroll-behavior: smooth;
+  }
+  
+  #items::-webkit-scrollbar { /*Remove a scroll bar do Slider*/
+    display: none;
+  }
+  
+  .item { /*Stilo dos itens que guardam as imagens*/
+    flex: none;
+  
+    width: 100%;
+    height: 320px;
+    scroll-snap-align: start; /*Centraliza o scroll*/
+  
+    pointer-events: none; /*O mouse não pode interagir com esses elementos, apenas seu elemento-pai*/
+  }
+  
+  img { /*Stilo das imagens*/
+    width: 100%;
+    height: 100%;
+  
+    object-fit: cover; /*Mantem a o tamanho da imagem na visualização*/
+  }
+  
+  /* Empresas Parceiras =========================  Empresas Parceiras  ==========================  Empresas Parceiras  =====================  Empresas Parceiras  ===============*/
+  
+  
+  .slider{
+    height: 250px;
+    margin: auto;
+    position: relative;
+    width: 90%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+  .slide-track{
+    display: flex;
+    width: calc(250px * 18);
+    animation: scroll 40s linear infinite;
+  }
+  .slide-track:hover{
+    animation-play-state: paused;
+  }
+  
+  @keyframes scroll{
+    0%{
+      transform:translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 9));
+    }
+  }
+  .slide{
+    height: 200px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    perspective: 100px;
+  }
+  .img-slide {
+    object-fit: contain;
+  }
+  img{
+    width: 100%;
+    transition: transform 1s;
+  }
+  img:hover{
+  transform: translateZ(20px);
+  }
+  
+  /* sombras */
+  
+  .slider::before,
+  .slider::after{
+    background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgba(255,255,255,0) 100%);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 5%;
+    z-index: 2;
+  }
+  .slider::before{
+    left: 0;
+    top: 0;
+  }
+  .slider::after{
+    right:0 ;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+  
+  
+  /*Footer  =========================  Footer  ===================================  Footer  ================================  Footer  ====================  Footer  ============*/
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    :root {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    margin: 0;
+    font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  
+  .row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) / -2);
+    margin-left: calc(var(--bs-gutter-x) / -2);
+  }
+  .col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.3333333333%;
+  }
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    background-color: transparent;
+    border: 0.125rem solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .btn-outline-light {
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+  }
+  .btn-outline-light:hover {
+    color: #000;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+  .btn-social {
+    border-radius: 100%;
+    display: inline-flex;
+    width: 3.25rem;
+    height: 3.25rem;
+    font-size: 1.25rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: #00B9F3;
+    color: #fff;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    :root {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    margin: 0;
+    font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  h4, .h4, h2, .h2, h1, .h1 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  h4, .h4 {
+    font-size: calc(1.275rem + 0.3vw);
+  }
+  a {
+    color: #12b9ec;
+    text-decoration: underline ;
+  }
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+  .container,
+  .container-sm {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media (min-width: 1200px) {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+      max-width: 1140px;
+    }
+  }
+  .row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) / -2);
+    margin-left: calc(var(--bs-gutter-x) / -2);
+  }
+  .col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.3333333333%;
+  }
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 0.125rem solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .btn-outline-light {
+    color: orange;
+    border-color: #f8f9fa;
+  }
+  .btn-outline-light:hover {
+    color: #000;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+  .btn-social {
+    border-radius: 100%;
+    display: inline-flex;
+    width: 3.25rem;
+    height: 3.25rem;
+    font-size: 1.25rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: #000000;
+    color: orange;
+  }
+  

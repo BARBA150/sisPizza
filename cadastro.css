@@ -1,0 +1,86 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
+    color: orange;
+
+}
+h1 { 
+    color: orange; 
+    text-align: center;
+}
+.labelet{
+    color: orange;
+    text-align: center;
+    position: absolute;
+    pointer-events: none;
+    transition: .5s;
+
+}
+p{
+    color: orange;
+    pointer-events: none;
+    transition: .5s;
+
+}
+legend{
+    color: orange;
+}
+
+body
+{
+    background:url('.//img/images.jfif');
+    background-size: 100%;
+}
+.piz{
+  width: 40%;
+  margin:2%;
+  padding:10px 20px;
+  border: 1px solid #ccc; 
+}
+
+.btSave{
+    background-color: green;
+    border: none;
+    padding: 15px;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    border-bottom: 1px solid white;
+    outline: none;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+#submit:hover{
+    background-image: linear-gradient(to right, rgb(15, 223, 119), rgb(11, 226, 108));
+}
+
+.btBack{
+    background-color: orange;
+    border: none;
+    padding: 15px;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    border-bottom: 1px solid white;
+    outline: none;
+    font-size: 15px;
+    text-align: center;
+    width: 95%;
+    letter-spacing: 2px;
+}
+
+div:hover{
+    background-image: linear-gradient(to right, rgb(233, 218, 10), rgb(255, 208, 0)); 
+}
+
+.cont{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+}
